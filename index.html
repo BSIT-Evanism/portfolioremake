@@ -12,23 +12,43 @@
 
 
 <body>
+  <svg class="fixed top-0">
+    <filter id='noiseFilter'>
+      <feTurbulence type='fractalNoise' baseFrequency='0.6' stitchTiles='stitch' />
+      <feColorMatrix in="colorNoise" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+      <feComposite operator="in" in2="SourceGraphic" result="monoNoise" />
+      <feBlend in="SourceGraphic" in2="monoNoise" mode="screen" />
+    </filter>
+
+  </svg>
   <div class="w-5 h-5 bg-[#0F2C59] rounded-full fixed cursorcustom z-10"></div>
-  <div class="w-auto h-screen flex flex-wrap">
-    <div class="m-10 w-full h-20 flex justify-between items-center">
-      <h1 class="w-55 h-19 text-8 text-[#0F2C59] text-wrap">EVAN SOLANOY</h1>
-      <nav class="flex gap-5">
-        <p class="text-6 text-[#0F2C59] decoration-none uppercase ">About</p>
-        <p class="text-6 text-[#0F2C59] decoration-none uppercase ">Projects</p>
-        <p class="text-6 text-[#0F2C59] decoration-none uppercase ">Contact</p>
-      </nav>
+  <div class="m-10 w-95vw h-20 fixed flex justify-between items-center">
+    <h1 class="w-55 h-19 text-8 text-[#0F2C59] text-wrap">EVAN SOLANOY</h1>
+    <nav class="flex gap-5">
+      <p class="text-6 text-[#0F2C59] decoration-none uppercase ">About</p>
+      <p class="text-6 text-[#0F2C59] decoration-none uppercase ">Projects</p>
+      <p class="text-6 text-[#0F2C59] decoration-none uppercase ">Contact</p>
+    </nav>
+  </div>
+  <div>
+    <div class="mb--100vh relative w-auto h-[300vh] flex flex-wrap z--1">
+      <div class="sticky top-12 w-screen h-screen flex flex-col">
+        <h1 class="text-[248px] text-[#0F2C59]">SOFTWARE</h1>
+        <h3 class="text-[109px] self-end text-[#0F2C59]">ENGINEER</h3>
+        <img class="absolute w-[611px] h-[1115px] self-center top-2" src="/mypic.png" alt="John Evan">
+      </div>
+      <div class="h-screen w-auto"></div>
     </div>
-    <div class="w-screen h-full flex flex-col overflow-hidden">
-      <h1 class="text-[248px] text-[#0F2C59]">SOFTWARE</h1>
-      <h3 class="text-[109px] self-end text-[#0F2C59]">ENGINEER</h3>
-      <img class="absolute w-[611px] h-[1115px] self-center top-2" src="./public/mypic.png" alt="John Evan">
+    <div class="h-200vh w-auto bg-[#0F2C59] p-10 rounded-20 z-2 flex flex-col">
+      <div class="w-full h-screen items-center flex justify-evenly">
+        <h2 class="text-white text-5xl w-50%">I am a developer without fear on using future tech to achieve anything, I
+          mainly focus on motion design, micro-interactions and UX design that might look like an eye candy but enhances
+          the experience of every user.
+        </h2>
+        <div class="border-white border-5"><img class="h-70vh" src="/mypic.png" alt="my image"></div>
+      </div>
     </div>
   </div>
-  <div class="w-auto h-screen"></div>
 </body>
 
 
@@ -41,6 +61,24 @@
     font-family: 'Quicksand', sans-serif;
     cursor: none;
     background: #F8F0E5;
+  }
+
+  body::before,
+  body::after {
+    position: fixed;
+    left: 0;
+    top: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    opacity: 20%;
+  }
+
+  body::before {
+    background: #DAC0A3;
+    filter: url(#noiseFilter);
   }
 </style>
 <script type="module" src="/main.js"></script>
