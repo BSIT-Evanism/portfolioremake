@@ -31,6 +31,10 @@ scroll(
     animate(".mainimage", { y: [0, "50vh"], scale: [1, 2], opacity: [1, 0] })
 )
 
+scroll(
+    animate('.innerimage', { y: [0, "-50vh"] }, { delay: 0.5 })
+)
+
 
 document.addEventListener('mousemove', function (e) {
     var x = e.clientX;
