@@ -46,11 +46,8 @@
           the experience of every user.
         </h2>
         <div class="imgwrapper group">
-          <div
-            class="border-white rounded-2xl border-5  group-hover:transform-rotate-x-40 group-hover:scale-80 transition-all duration-300ms ease-in">
-            <img
-              class="h-70vh group-hover:transform-translate-z-500px group-hover:scale-120 transition-all duration-300ms ease-in"
-              src="/mypic.png" alt="my image">
+          <div class="border-white imgwrap rounded-2xl border-5 transition-all duration-300ms ease-in">
+            <img class="h-70vh transition-all duration-300ms ease-in" src="/mypic.png" alt="my image">
           </div>
         </div>
       </div>
@@ -91,7 +88,8 @@
 
   .imgwrapper {
     transform-style: preserve-3d;
-    perspective: 5000px
+    /* perspective: 1000px; */
+    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) perspective(2000px);
   }
 </style>
 <script type="module" src="/main.js"></script>
