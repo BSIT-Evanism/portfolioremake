@@ -1,64 +1,91 @@
 import 'virtual:uno.css'
 import 'virtual:unocss-devtools'
 import '@unocss/reset/tailwind.css'
-import {animate, scroll} from 'motion'
+import { animate, scroll, spring, stagger, inView } from 'motion'
 
 const cursor = document.querySelector('.cursorcustom');
 const imgwrap = document.querySelector('.imgwrapper');
-let isOver = false;
-// const imgwrapper = document.querySelector('.imgwrap');
+const imgwrapper = document.querySelector('.imgwrap');
+const marker = document.querySelectorAll('.marker')
+const marquee = document.querySelector(".marquee")
+const wrap = document.querySelector(".scrollwrap")
 
-document.addEventListener('mousemove', function(e){
+const scrollOpts = {
+    target: imgwrapper,
+    offset: ["start end", "end end"]
+}
+
+
+inView(imgwrap, () => {
+    animate('h2 span', { opacity: [0.2, 1], rotateX: ["90deg", 0] }, { delay: stagger(0.1, { from: "first" }) })
+    animate('.imgwrapper', { opacity: [0, 1], translateY: [-1000, 0] }, { duration: 2, easing: 'ease' })
+})
+
+scroll(
+    animate(".software", { x: [0, "-100vw"] })
+)
+scroll(
+    animate(".engineer", { x: [0, "100vw"] })
+)
+scroll(
+    animate(".mainimage", { y: [0, "50vh"], scale: [1, 2], opacity: [1, 0] })
+)
+
+
+document.addEventListener('mousemove', function (e) {
     var x = e.clientX;
     var y = e.clientY;
     cursor.style.left = x + 'px';
     cursor.style.top = y + 'px';
 });
+for (let i = 0; i < marker.length; i++) {
 
-document.addEventListener('mouseleave', function(e){
+    marker[i].addEventListener('mouseover', () => {
+        animate(cursor, { scale: 4.5, opacity: 0.3 }, { easing: spring() })
+    })
+
+    marker[i].addEventListener('mouseleave', () => {
+        animate(cursor, { scale: 1, opacity: 0.6 }, { easing: spring() })
+    })
+}
+
+animate(marquee, { x: "-50%" }, { duration: 10, repeat: Infinity, easing: "linear" })
+
+document.addEventListener('mouseleave', function (e) {
     var x = e.clientX;
     var y = e.clientY;
     cursor.style.transform = x + 'px';
     cursor.style.transform = y + 'px';
-    animate(cursor, {scale: 1, opacity:0}, {duration: 0.5, ease: "ease-in-out"})
+    animate(cursor, { scale: 1, opacity: 0 }, { duration: 0.5, ease: "ease-in-out" })
 });
 
-document.addEventListener('mouseenter', function(e){
+document.addEventListener('mouseenter', function (e) {
     var x = e.clientX;
     var y = e.clientY;
     cursor.style.left = x + 'px';
     cursor.style.top = y + 'px';
-    animate(cursor, {scale: 1, opacity:1}, {duration: 0.5, ease: "ease-in-out"})
+    animate(cursor, { scale: 1, opacity: 1 }, { duration: 0.5, ease: "ease-in-out" })
 });
 
-imgwrap.addEventListener('mouseover', (e) => {
-    isOver = true;
-})
+imgwrap.addEventListener('mousemove', imgMouse)
+imgwrap.addEventListener('mouseleave', imgReset)
 
-imgwrap.addEventListener('mouseleave', (e) => {
-    isOver = false;
-})
+function imgMouse(e) {
 
-document.addEventListener('mousemove', (e) => {
-    if (isOver) {
+    const { top, left, width, height } = imgwrap.getBoundingClientRect();
+    const centerX = left + width / 2;
+    const centerY = top + height / 2;
+    const mouseX = e.clientX - centerX;
+    const mouseY = e.clientY - centerY;
+    const rotateX = 20 * (mouseX / (height / 2));
+    const rotateY = 20 * (mouseY / (width / 2));
 
-    const x = e.clientX;
-    const y = e.clientY;
-    const {width,height, left, top} = imgwrap.getBoundingClientRect();
-        
-    const midX = x - (left + width / 2) * 40;
-    const midY = y - (top + height / 2) * 40;
-    // const offsetX = ((x - midX) / midX) * 40;
-    // const offsetY = ((x - midY) / midY) * 40;
-    // console.log(isOver)
-    
-    imgwrap.style.setProperty("--rotateX", -1 * midY + "deg");
-    imgwrap.style.setProperty("--rotateY", -1 * midX + "deg");
+    animate(".imgwrap", { rotateX: -1 * rotateY, rotateY: rotateX }, { easing: spring() })
+
 }
 
-})
+function imgReset() {
+    animate(".imgwrap", { rotateX: 0, rotateY: 0 }, { easing: spring() })
+}
 
-imgwrap.addEventListener('mouseleave', () => {
-    imgwrap.style.setProperty("--rotateX", "0deg")
-    imgwrap.style.setProperty("--rotateY", "0deg")
-})
+

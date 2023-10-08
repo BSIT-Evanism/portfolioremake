@@ -21,33 +21,77 @@
     </filter>
 
   </svg>
-  <div class="w-5 h-5 bg-[#0F2C59] rounded-full fixed cursorcustom z-10"></div>
+  <div class="w-5 h-5 bg-[#0F2C59] rounded-full fixed cursorcustom pointer-events-none z-10"></div>
   <div class="m-10 w-95vw h-20 fixed flex justify-between items-center">
-    <h1 class="w-55 h-19 text-8 text-[#0F2C59] text-wrap">EVAN SOLANOY</h1>
+    <h1 class="w-55 h-19 text-8 text-[#0F2C59] text-wrap marker">EVAN SOLANOY</h1>
     <nav class="flex gap-5">
-      <p class="text-6 text-[#0F2C59] decoration-none uppercase ">About</p>
-      <p class="text-6 text-[#0F2C59] decoration-none uppercase ">Projects</p>
-      <p class="text-6 text-[#0F2C59] decoration-none uppercase ">Contact</p>
+      <p class="text-6 text-[#0F2C59] decoration-none uppercase marker">About</p>
+      <p class="text-6 text-[#0F2C59] decoration-none uppercase marker">Projects</p>
+      <p class="text-6 text-[#0F2C59] decoration-none uppercase marker">Contact</p>
     </nav>
   </div>
   <div>
     <div class="mb--100vh relative w-auto h-[300vh] flex flex-wrap z--1">
-      <div class="sticky top-12 w-screen h-screen flex flex-col">
-        <h1 class="text-[248px] text-[#0F2C59]">SOFTWARE</h1>
-        <h3 class="text-[109px] self-end text-[#0F2C59]">ENGINEER</h3>
-        <img class="absolute w-[611px] h-[1115px] self-center top-2" src="/mypic.png" alt="John Evan">
+      <div class="sticky top-12 w-screen h-screen flex flex-col overflow-hidden">
+        <h1 class="text-[248px] text-[#0F2C59] software">SOFTWARE</h1>
+        <h3 class="text-[109px] self-end text-[#0F2C59] engineer">ENGINEER</h3>
+        <img class="absolute w-[611px] h-[1115px] self-center top-2 mainimage object-cover" src="/mypic.png"
+          alt="John Evan">
+        <h3 class="absolute text-5xl text-nowrap top-85vh z--1 marquee">| UX/UX Designer | Web Developer | Brand/Logo |
+          Backend Engineer |
+          Designer |
+          UX/UX Designer | Web Developer | Brand/Logo Designer |
+          Backend
+          Engineer</h3>
       </div>
       <div class="h-screen w-auto"></div>
     </div>
-    <div class="h-200vh w-auto bg-[#0F2C59] p-10 rounded-20 z-2 flex flex-col">
-      <div class="w-full h-screen items-center flex justify-evenly">
-        <h2 class="text-white text-5xl w-50%">I am a developer without fear on using future tech to achieve anything, I
-          mainly focus on motion design, micro-interactions and UX design that might look like an eye candy but enhances
-          the experience of every user.
+    <div class="h-200vh w-auto bg-[#0F2C59] p-10 rounded-20 z-2 flex flex-col overflow-hidden">
+      <div class="w-full h-100vh items-center flex justify-evenly scrollwrap">
+        <h2 class="text-white text-5xl w-50% marker para">
+          <span>I</span>
+          <span>am</span>
+          <span>a</span>
+          <span>developer</span>
+          <span>without</span>
+          <span>fear</span>
+          <span>on</span>
+          <span>using</span>
+          <span>future</span>
+          <span>tech</span>
+          <span>to</span>
+          <span>achieve</span>
+          <span>anything,</span>
+          <span>I</span>
+          <span>mainly</span>
+          <span>focus</span>
+          <span>on</span>
+          <span>motion</span>
+          <span>design,</span>
+          <span>micro-interactions</span>
+          <span>and</span>
+          <span>UX</span>
+          <span>design</span>
+          <span>that</span>
+          <span>might</span>
+          <span>look</span>
+          <span>like</span>
+          <span>an</span>
+          <span>eye</span>
+          <span>candy</span>
+          <span>but</span>
+          <span>enhances</span>
+          <span>the</span>
+          <span>experience</span>
+          <span>of</span>
+          <span>every</span>
+          <span>user.</span>
         </h2>
-        <div class="imgwrapper group">
-          <div class="border-white imgwrap rounded-2xl border-5 transition-all duration-300ms ease-in">
-            <img class="h-70vh transition-all duration-300ms ease-in" src="/mypic.png" alt="my image">
+        <div class="imgwrapper top-0 flex justify-center items-center w-50% h-70vh group ">
+          <div
+            class="w-fit h-fit  imgwrap pointer-events-none rounded-2xl border-5 border-[#F8F0E5] overflow-hidden drop-shadow-lg bg-[#F8F0E5]">
+            <img class="h-70vh pointer-events-none group-hover:scale-120 transition-all duration-500ms" src="/mypic.png"
+              alt="my image">
           </div>
         </div>
       </div>
@@ -87,9 +131,20 @@
   }
 
   .imgwrapper {
+
     transform-style: preserve-3d;
-    /* perspective: 1000px; */
-    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) perspective(2000px);
+  }
+
+  .imgwrapper div {
+    transform-style: preserve-3d;
+    perspective: 23rem;
+    perspective-origin: center;
+    /* transition: 300ms ease-in; */
+    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translateZ(500px);
+  }
+
+  .para>span {
+    display: inline-block;
   }
 </style>
 <script type="module" src="/main.js"></script>
