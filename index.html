@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/newlogo.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.26/bundled/lenis.min.js"></script>
   <title>Evan Solanoy</title>
 </head>
 
@@ -21,13 +20,26 @@
     </filter>
 
   </svg>
-  <div class="w-5 h-5 bg-[#0F2C59] rounded-full fixed cursorcustom pointer-events-none z-10"></div>
+  <div
+    class="w-5 h-5 bg-[#0F2C59] flex justify-center items-center rounded-full fixed cursorcustom pointer-events-none z-10">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+      class="w-2 h-2 text-white opacity-0 svgcursor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25" />
+    </svg>
+  </div>
   <div class="m-10 w-95vw h-20 fixed flex justify-between items-center">
     <h1 class="w-55 h-19 text-8 text-[#0F2C59] text-wrap marker">EVAN SOLANOY</h1>
-    <nav class="flex gap-5">
-      <p class="text-6 text-[#0F2C59] decoration-none uppercase marker">About</p>
-      <p class="text-6 text-[#0F2C59] decoration-none uppercase marker">Projects</p>
-      <p class="text-6 text-[#0F2C59] decoration-none uppercase marker">Contact</p>
+    <nav class="flex gap-5 [&:has(p:hover)>p:not(:hover)]:translate-y--3 transition-all duration-500ms ease-in-out">
+      <p
+        class="text-6 text-[#0F2C59] decoration-none uppercase marker hover:opacity-50 transition-all duration-500ms ease-in-out">
+        About
+      </p>
+      <p
+        class="text-6 text-[#0F2C59] decoration-none uppercase marker hover:opacity-50 transition-all duration-500ms ease-in-out">
+        Projects</p>
+      <p
+        class="text-6 text-[#0F2C59] decoration-none uppercase marker hover:opacity-50 transition-all duration-500ms ease-in-out">
+        Contact</p>
     </nav>
   </div>
   <div>
@@ -49,7 +61,7 @@
     <div class="h-200vh w-auto bg-[#0F2C59] p-10 rounded-20 z-2 flex flex-col overflow-hidden">
       <div class="w-full h-100vh items-center flex justify-evenly scrollwrap">
         <div class="w-60%">
-          <h2 class="text-white text-5xl text-justify marker para">
+          <h2 class="text-white text-4xl fw200 line-height-relaxed text-justify marker para">
             <span>I</span>
             <span>am</span>
             <span>a</span>
@@ -89,69 +101,112 @@
             <span>user.</span>
           </h2>
           <div
-            class="group mt-10 relative flex h-14 w-52 cursor-pointer items-center justify-center gap-4 rounded-full border-2 border-solid border-black">
+            class="group mt-20 relative flex h-24 w-68 cursor-pointer items-center justify-center gap-4 rounded-full border-2 border-solid border-black">
             <div
-              class="absolute left-5 z-0 h-3 w-3 rounded-full bg-[#DAC0A3] transition-all duration-300 ease-in-out group-hover:left-0 group-hover:h-full group-hover:w-full">
+              class="absolute left-8 z-0 h-5 w-5 rounded-full bg-[#DAC0A3] transition-all duration-400 ease-[cubic-bezier(0.445, 0.05, 0.55, 0.95)] group-hover:left-0 group-hover:h-full group-hover:w-full">
             </div>
             <p
-              class="absolute right-5 z-10 font-bold uppercase transition-all duration-300 ease-in-out group-hover:right-8 text-white group-hover:text-black">
+              class="absolute right-8 text-xl z-10 font-bold uppercase transition-all duration-400 ease-[cubic-bezier(0.445, 0.05, 0.55, 0.95)] group-hover:right-14 text-white group-hover:text-black button">
               More about me</p>
           </div>
         </div>
-        <div class="imgwrapper top-0 flex justify-center items-center w-50% h-70vh group ">
+        <div class="imgwrapper top-0 flex justify-center items-center w-50% h-70vh translate-y-200 group ">
           <div
-            class="w-fit h-70vh translate-x-200 imgwrap pointer-events-none rounded-2xl border-5 border-[#F8F0E5] overflow-hidden drop-shadow-2xl bg-[#F8F0E5]">
-            <img class="h-70vh innerimage pointer-events-none group-hover:scale-120 transition-all duration-500ms"
-              src="/mypic.png" alt="my image">
+            class="w-fit h-70vh  imgwrap pointer-events-none rounded-2xl border-5 border-[#F8F0E5] overflow-hidden drop-shadow-2xl bg-[#F8F0E5]">
+            <img
+              class="h-70vh innerimage pointer-events-none group-hover:scale-150 transition-all duration-500ms ease-[cubic-bezier(0.445, 0.05, 0.55, 0.95)]"
+              src="/newpic3.png" alt="my image">
           </div>
         </div>
       </div>
       <div class="h-100vh w-screen flex justify-end items-center">
-        <div class="w-50% h-screen flex justify-center items-center">
+        <div class="w-50% h-screen relative flex justify-center items-center">
           <div
-            class=" w-70% h-80% border-(5 solid white) rounded-3xl translate-x--200 accordion_image flex justify-center items-center">
-            <h1>Placeholder Text</h1>
+            class=" w-70% h-80% rounded-3xl translate-x--200 bg-[#DAC0A3] accordion_image flex justify-center overflow-hidden absolute items-center">
+            <div class="bg-red w-full h-full Item hidden z-0">
+              <h1>Item 1</h1>
+            </div>
+            <div class="bg-green w-full h-full Item hidden z-1">
+              <h1>Item 2</h1>
+            </div>
+            <div class="bg-blue w-full h-full Item hidden z-2">
+              <h1>Item 3</h1>
+            </div>
+            <div class="bg-pink w-full h-full Item hidden z-3">
+              <h1>Item 4</h1>
+            </div>
           </div>
         </div>
         <div class=" w-50% h-screen flex flex-col justify-end text-[#F8F0E5] uppercase accordion_middle">
           <div class="flex flex-col gap-8 mb-8 ">
             <div class="text-5xl border-t-(2 solid white) h-auto group accordion_inner transition-all duration-200ms">
-              UI/UX design
-              <div class="max-h-0 group-hover:max-h-500px overflow-hidden transition-all duration-700ms ease-in-out">
+              <div
+                class="max-h-0 group-hover:max-h-100px text-xl overflow-hidden transition-all duration-700ms ease-[cubic-bezier(0.445, 0.05, 0.55, 0.95)]">
                 Lorem
                 ipsum,
                 dolor sit amet consectetur
                 adipisicing elit.
                 Corrupti delectus minima, commodi iste non quaerat necessitatibus tenetur harum provident quo voluptate
                 qui earum ab obcaecati culpa reprehenderit nihil quis voluptatum?</div>
+              <h1 class="title_accord">UI/UX design</h1>
             </div>
             <div class="text-5xl group border-t-(2 solid white) accordion_inner">
-              Front-End Development
-              <div class="max-h-0 group-hover:max-h-500px overflow-hidden transition-all duration-700ms ease-in-out">
+              <div
+                class="max-h-0 group-hover:max-h-500px overflow-hidden transition-all duration-700ms ease-[cubic-bezier(0.445, 0.05, 0.55, 0.95)]">
                 Lorem
                 ipsum,
                 dolor sit amet consectetur
                 adipisicing elit.
                 Corrupti delectus minima, commodi iste non quaerat necessitatibus tenetur harum provident quo voluptate
                 qui earum ab obcaecati culpa reprehenderit nihil quis voluptatum?</div>
+              <h1 class="title_accord pb">Front-End Development</h1>
             </div>
-            <div class="text-5xl border-t-(2 solid white) accordion_inner">Backend Development</div>
-            <div class="text-5xl border-t-(2 solid white) accordion_inner">Motion/Micro-Interaction Design</div>
+            <div class="text-5xl border-t-(2 solid white) group accordion_inner">
+              <div
+                class="max-h-0 group-hover:max-h-500px overflow-hidden transition-all duration-700ms ease-[cubic-bezier(0.445, 0.05, 0.55, 0.95)]">
+                Lorem
+                ipsum,
+                dolor sit amet consectetur
+                adipisicing elit.
+                Corrupti delectus minima, commodi iste non quaerat necessitatibus tenetur harum provident quo voluptate
+                qui earum ab obcaecati culpa reprehenderit nihil quis voluptatum?</div>
+              <h1 class="title_accord pb">Backend Development</h1>
+            </div>
+          </div>
+          <div class="text-5xl border-t-(2 solid white) group accordion_inner">
+            <div
+              class="max-h-0 group-hover:max-h-500px overflow-hidden transition-all duration-700ms ease-[cubic-bezier(0.445, 0.05, 0.55, 0.95)]">
+              Lorem
+              ipsum,
+              dolor sit amet consectetur
+              adipisicing elit.
+              Corrupti delectus minima, commodi iste non quaerat necessitatibus tenetur harum provident quo voluptate
+              qui earum ab obcaecati culpa reprehenderit nihil quis voluptatum?</div>
+            <h1 class="title_accord pb">Motion Design</h1>
           </div>
         </div>
       </div>
     </div>
+    <div class="h-300vh mt--100vh mb--100vh z--1">
+      <div class="h-screen w-full flex justify-center items-center sticky top-0 z--1">
+        <h1 class="text-6xl z--1">Mid section</h1>
+      </div>
+    </div>
+    <div class="h-screen w-full bg-[#0F2C59] rounded-20 rounded-b-0 z-1"></div>
+  </div>
+  </div>
   </div>
 </body>
 
 
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap');
+
 
   html {
     scroll-behavior: smooth;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Rubik', sans-serif;
     cursor: none;
     background: #F8F0E5;
   }
@@ -194,6 +249,7 @@
 
   .para>span {
     display: inline-block;
+    opacity: 0;
   }
 </style>
 <script type="module" src="/main.js"></script>

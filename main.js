@@ -12,26 +12,50 @@ const wrap = document.querySelector(".scrollwrap")
 const accord = document.querySelector(".accordion_middle");
 const accordimage = document.querySelector(".accordion_image")
 const accordinner = document.querySelectorAll(".accordion_inner")
+const accordTitle = document.querySelectorAll(".title_accord")
+const custom = document.querySelector(".svgcursor")
+const parag = document.querySelectorAll("h2 span")
+const roller = document.querySelectorAll(".Item")
+
+document.scrollingElement.scrollTop = 0;
 
 const scrollOpts = {
   target: imgwrapper,
   offset: ["start end", "end end"]
 }
 
+for (let i = 0; i < roller.length; i++) {
+  accordinner[i].addEventListener('mouseover', () => {
+    animate(roller[i], { display: "block", opacity: [0, 1] }, { duration: 1, easing: "ease-in" })
+  })
+  accordinner[i].addEventListener('mouseleave', () => {
+    animate(roller[i], { opacity: [1, 0], display: "none" }, { duration: 0.5, easing: "ease-out" })
+  })
+}
 
-inView(imgwrap, () => {
-  animate('h2 span', { opacity: [0.2, 1], rotateX: ["90deg", 0] }, { delay: stagger(0.1, { from: "first" }) })
+inView('.button', () => {
+  animate('h2 span', { opacity: [0, 1], rotateX: ["90deg", 0] }, { delay: stagger(0.1, { from: "first" }) })
   animate('.imgwrapper', { opacity: [0, 1], translateY: [-1000, 0] }, { duration: 2, easing: 'ease' })
 })
 
-// for (let i = 0; i < accordinner.length; i++) {
-//   accordinner[i].addEventListener('mouseover', () => {
-//     animate(accordinner[i], { height: '50vh' }, { easing: "linear" })
-//   })
-//   accordinner[i].addEventListener('mouseleave', () => {
-//     animate(accordinner[i], { height: "auto" })
-//   })
-// }
+for (let i = 0; i < parag.length; i++) {
+  parag[i].addEventListener('mouseover', () => {
+    animate(parag[i], { scale: 0.8, color: "#DAC0A3" }, { easing: spring() })
+  })
+  parag[i].addEventListener('mouseleave', () => {
+    animate(parag[i], { scale: 1, color: 'white' }, { easing: spring() })
+  })
+}
+
+
+for (let i = 0; i < accordinner.length; i++) {
+  accordinner[i].addEventListener('mouseover', () => {
+    animate(accordTitle[i], { x: -100, color: "#DAC0A3" }, { duration: 0.5, easing: "ease" })
+  })
+  accordinner[i].addEventListener('mouseleave', () => {
+    animate(accordTitle[i], { x: 0 })
+  })
+}
 
 scroll(
   animate(".software", { x: [0, "-100vw"] })
@@ -43,12 +67,12 @@ scroll(
   animate(".mainimage", { y: [0, "50vh"], scale: [1, 2], opacity: [1, 0] })
 )
 
-scroll(
-  animate('.innerimage', { y: [0, "-50vh"] }, { delay: 0.5 })
-)
+// scroll(
+//   animate('.innerimage', { y: [0, "-50vh"] }, { delay: 0.5 })
+// )
 
 
-document.addEventListener('mousemove', function(e) {
+document.addEventListener('mousemove', function (e) {
   var x = e.clientX;
   var y = e.clientY;
   cursor.style.left = x + 'px';
@@ -58,16 +82,18 @@ for (let i = 0; i < marker.length; i++) {
 
   marker[i].addEventListener('mouseover', () => {
     animate(cursor, { scale: 4.5, opacity: 0.3 }, { easing: spring() })
+    animate(custom, { opacity: 1 }, { easing: 'ease' })
   })
 
   marker[i].addEventListener('mouseleave', () => {
     animate(cursor, { scale: 1, opacity: 0.6 }, { easing: spring() })
+    animate(custom, { opacity: 0 }, { easing: 'ease' })
   })
 }
 
 animate(marquee, { x: "-50%" }, { duration: 10, repeat: Infinity, easing: "linear" })
 
-document.addEventListener('mouseleave', function(e) {
+document.addEventListener('mouseleave', function (e) {
   var x = e.clientX;
   var y = e.clientY;
   cursor.style.transform = x + 'px';
@@ -75,7 +101,7 @@ document.addEventListener('mouseleave', function(e) {
   animate(cursor, { scale: 1, opacity: 0 }, { duration: 0.5, ease: "ease-in-out" })
 });
 
-document.addEventListener('mouseenter', function(e) {
+document.addEventListener('mouseenter', function (e) {
   var x = e.clientX;
   var y = e.clientY;
   cursor.style.left = x + 'px';
@@ -105,7 +131,7 @@ function imgReset() {
 }
 
 inView(accordinner[1], () => {
-  animate(accordimage, { x: [-500, 0] }, { duration: 1, easing: spring() })
+  animate(accordimage, { x: [-500, 0] }, { duration: 2, easing: 'ease' })
 })
 
 
