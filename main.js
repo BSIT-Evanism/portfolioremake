@@ -19,9 +19,11 @@ const roller = document.querySelectorAll(".Item")
 const hamburg = document.querySelector(".hamburger")
 const topham = document.querySelector(".top_hambuger")
 const botham = document.querySelector(".bottom_hambuger")
+const header = document.querySelector(".header")
 let toggle = false;
+let prevVal = true;
 
-document.scrollingElement.scrollTop = 0;
+// document.scrollingElement.scrollTop = 0;
 
 hamburg.addEventListener('click', () => {
   toggle = !toggle;
@@ -38,6 +40,17 @@ hamburg.addEventListener('click', () => {
 
 })
 
+scroll((info) => {
+  if (info.y.velocity < 0) {
+    prevVal = false;
+  } else {
+    prevVal = true;
+  }
+})
+
+document.addEventListener('scroll', () => {
+  animate(header, { y: prevVal ? -200 : 0 }, { easing: spring() })
+})
 
 
 const scrollOpts = {
@@ -112,7 +125,7 @@ for (let i = 0; i < marker.length; i++) {
   })
 }
 
-animate(marquee, { x: "-50%" }, { duration: 10, repeat: Infinity, easing: "linear" })
+animate(marquee, { x: "-50%" }, { duration: 20, repeat: Infinity, easing: "linear" })
 
 document.addEventListener('mouseleave', function (e) {
   var x = e.clientX;
