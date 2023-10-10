@@ -131,7 +131,7 @@ function imgReset() {
 }
 
 inView(accordinner[1], () => {
-  animate(accordimage, { x: [-500, 0] }, { duration: 2, easing: 'ease' })
+  animate(accordimage, { x: [-1000, 0] }, { duration: 2, easing: 'ease' })
 })
 
 
