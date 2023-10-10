@@ -16,8 +16,29 @@ const accordTitle = document.querySelectorAll(".title_accord")
 const custom = document.querySelector(".svgcursor")
 const parag = document.querySelectorAll("h2 span")
 const roller = document.querySelectorAll(".Item")
+const hamburg = document.querySelector(".hamburger")
+const topham = document.querySelector(".top_hambuger")
+const botham = document.querySelector(".bottom_hambuger")
+let toggle = false;
 
 document.scrollingElement.scrollTop = 0;
+
+hamburg.addEventListener('click', () => {
+  toggle = !toggle;
+
+  if (toggle) {
+    animate(".top_hamburger", { rotate: [0, 45] }, { duration: 0.5, easing: "ease" })
+    animate(".bottom_hamburger", { rotate: [0, -45] }, { duration: 0.5, easing: "ease" })
+
+  } else {
+    animate(".top_hamburger", { rotate: [45, 0] }, { duration: 0.5, easing: "ease" })
+    animate(".bottom_hamburger", { rotate: [-45, 0] }, { duration: 0.5, easing: "ease" })
+
+  }
+
+})
+
+
 
 const scrollOpts = {
   target: imgwrapper,
@@ -34,7 +55,7 @@ for (let i = 0; i < roller.length; i++) {
 }
 
 inView('.button', () => {
-  animate('h2 span', { opacity: [0, 1], rotateX: ["90deg", 0] }, { delay: stagger(0.1, { from: "first" }) })
+  animate('h2 span', { opacity: [0, 1], rotateX: ["90deg", 0] }, { delay: stagger(0.05, { from: "first" }) })
   animate('.imgwrapper', { opacity: [0, 1], translateY: [-1000, 0] }, { duration: 2, easing: 'ease' })
 })
 

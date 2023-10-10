@@ -20,7 +20,7 @@
     </filter>
 
   </svg>
-  <video loop class="w-screen h-screen scale-120 fixed z--10">
+  <video loop class="w-screen h-screen object-cover fixed z--10">
     <source src="/animBg.mp4" type="video/mp4">
   </video>
 
@@ -33,7 +33,8 @@
   </div>
   <div class="m-10 w-95vw h-20 fixed flex justify-between items-center">
     <h1 class="w-55 h-19 text-8 text-[#0F2C59] text-wrap marker">EVAN SOLANOY</h1>
-    <nav class="flex gap-5 [&:has(p:hover)>p:not(:hover)]:translate-y--3 transition-all duration-500ms ease-in-out">
+    <nav
+      class=" gap-5 hidden lg:flex [&:has(p:hover)>p:not(:hover)]:translate-y--3 transition-all duration-500ms ease-in-out">
       <p
         class="text-6 text-[#0F2C59] decoration-none uppercase marker hover:opacity-50 transition-all duration-500ms ease-in-out">
         About
@@ -45,12 +46,23 @@
         class="text-6 text-[#0F2C59] decoration-none uppercase marker hover:opacity-50 transition-all duration-500ms ease-in-out">
         Contact</p>
     </nav>
+    <div class="block lg:hidden hamburger  mr-10">
+      <svg class="w-10 h-10 transition-all duration-500ms ease-in-out" viewBox="0 0 100 100">
+        <rect class="w-80% h-3 rounded-2xl  transform-origin-center-left top_hamburger" x="10" y="20">
+        </rect>
+        <rect class="w-80% h-3 rounded-2xl transform-origin-bottom-center bottom_hamburger" x="10" y="50">
+        </rect>
+      </svg>
+    </div>
   </div>
   <div>
     <div class="mb--100vh relative w-auto h-[300vh] flex flex-wrap z--1">
       <div class="sticky top-12 w-screen h-screen flex flex-col overflow-hidden">
-        <h1 class="text-[248px] text-[#0F2C59] fw-500 software">SOFTWARE</h1>
-        <h3 class="text-[109px] self-end text-[#0F2C59] fw-300 mr-10 engineer">ENGINEER</h3>
+        <h1
+          class="lg:text-[248px] self-center lg:self-initial lg:mt-0 mt-50vh text-[100px] text-[#0F2C59] fw-500 software z-10 lg:z--1">
+          SOFTWARE
+        </h1>
+        <h3 class="text-[109px] lg:self-end self-center text-[#0F2C59] fw-300 mr-10 engineer z-10 lg:z--1">ENGINEER</h3>
         <img class="absolute w-[611px] h-[1115px] self-center top-2 mainimage object-cover" src="/mypic2.webp"
           alt="John Evan">
         <h3 class="absolute text-5xl text-nowrap top-85vh z--1 marquee">| UX/UX Designer | Web Developer | Brand/Logo |
@@ -107,10 +119,10 @@
           <div
             class="group mt-20 relative flex h-24 w-68 cursor-pointer items-center justify-center gap-4 rounded-full border-2 border-solid border-black">
             <div
-              class="absolute left-8 z-0 h-5 w-5 rounded-full bg-[#DAC0A3] transition-all duration-400 ease-[cubic-bezier(0.445, 0.05, 0.55, 0.95)] group-hover:left-0 group-hover:h-full group-hover:w-full">
+              class="absolute left-8 z-0 h-5 w-5 rounded-full bg-[#DAC0A3] transition-all duration-700ms ease-in-out group-hover:left-0 group-hover:h-full group-hover:w-full">
             </div>
             <p
-              class="absolute right-8 text-xl z-10 font-bold uppercase transition-all duration-400 ease-[cubic-bezier(0.445, 0.05, 0.55, 0.95)] group-hover:right-14 text-white group-hover:text-black button">
+              class="absolute right-8 text-xl z-10 font-bold uppercase transition-all duration-700ms ease-in-out group-hover:right-14 text-white group-hover:text-black button">
               More about me</p>
           </div>
         </div>
@@ -141,7 +153,8 @@
             </div>
           </div>
         </div>
-        <div class=" w-50% h-screen flex flex-col justify-end text-[#F8F0E5] uppercase accordion_middle">
+        <div
+          class=" lg:w-50% w-100% h-screen flex flex-col lg:justify-end justify-center text-[#F8F0E5] uppercase accordion_middle">
           <div class="flex flex-col mb-8 ">
             <div class="text-5xl border-t-(2 solid white) h-auto group accordion_inner transition-all duration-200ms">
               <div
