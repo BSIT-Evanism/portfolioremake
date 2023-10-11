@@ -20,6 +20,9 @@ const hamburg = document.querySelector(".hamburger")
 const topham = document.querySelector(".top_hambuger")
 const botham = document.querySelector(".bottom_hambuger")
 const header = document.querySelector(".header")
+const scrollmid = document.querySelector(".scrollmid")
+const projects = document.querySelector(".projects")
+
 let toggle = false;
 let prevVal = true;
 
@@ -39,6 +42,28 @@ hamburg.addEventListener('click', () => {
   }
 
 })
+
+scroll(
+  animate(".midsec", { scale: [1, 1.5] }), {
+  target: scrollmid,
+  offset: ["start end", "end end"]
+}
+)
+
+scroll(
+  animate(".progress", { scaleX: [0, 1] }), {
+  target: projects,
+  offset: ["start end", "end end"]
+}
+)
+
+document.querySelectorAll(".headhead").forEach((section) => {
+  const header = section.querySelector(".head");
+  scroll(animate(header, { y: [-400, 400] }), {
+    target: header
+  });
+});
+
 
 scroll((info) => {
   if (info.y.velocity < 0) {
