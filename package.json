@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "unocss": "^0.56.5",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-html-template": "^1.2.1"
   },
   "dependencies": {
     "@unocss/reset": "^0.56.5",
